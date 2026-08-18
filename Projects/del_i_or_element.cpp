@@ -10,10 +10,11 @@ vector<int> del_index(int index,vector<int> &arr)
 
 vector<int> del_element(int element,vector<int> &arr)
 {
-    for( int i = 0 ; i < 10 ; i++) //remove by element 
+    int len = sizeof(arr)/sizeof(arr[0]);
+    for( int i = 0 ; i < len ; i++) //remove by element 
     {
         if ( arr[i]  == element)
-        {   //removal by element
+        {   
             cout << "found " << arr[i] << " at index " << i << endl  ;
             arr.erase(arr.begin() + i);
             cout << "removed " << element << " sucessfully" << endl ;
@@ -25,10 +26,11 @@ vector<int> del_element(int element,vector<int> &arr)
 int main ()
 {
 
-    vector<int> v = {1,2,3,4,5,6,};
+    vector<int> v = {1,2,3,4,5,6};
 
     cout << "before removal :\n";
-    for (int i : v){
+    for (int i : v)
+    {
         cout << i << ' ' ;
     }
     cout << endl ;
