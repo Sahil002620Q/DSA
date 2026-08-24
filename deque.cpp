@@ -108,29 +108,8 @@ int main()
     
     q1.push_back(90);
     cout << "enqueued 90 at back" << endl;
-  //  cout << "enqueued 20 at back " << endl;
-  //  cout << "front : " << q1.peak() << endl ;
-  //  cout << "back : " << q1.back() << endl << endl;
+   
 
-  //  q1.push_back(30);
-  //  cout << "enqueued 30 at front " << endl;
-   // cout << "front : " << q1.peak() << endl ;
-   // cout << "back : " << q1.back() << endl << endl;
-    
-   // q1.push_back(30);
-  //  cout << "enqueued 30 at front " << endl;
-  //  cout << "front : " << q1.peak() << endl ;
-  //  cout << "back : " << q1.back() << endl << endl;
-
- //   q1.pop_back();
- //   cout << "dequeued (pop front) " << endl;
- //   cout << "front : " << q1.peak() << endl ;
- //   cout << "back : " << q1.back() << endl << endl;
-    
-  //  q1.pop_front();
-  //  cout << "dequeued (pop back) " << endl;
-  //  cout << "front : " << q1.peak() << endl ;   cout << "back : " << q1.back() << endl << endl;
-    // cout << (s1.empty() == true ? "is empty : true\n" : "is empty : false\n");
     q1.display();
 }
 //next make template so i can use it with string too
