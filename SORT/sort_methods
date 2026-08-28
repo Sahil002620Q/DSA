@@ -1,0 +1,22 @@
+| #  | Algorithm          | Difficulty  | Typical Time        |
+| -- | ------------------ | ----------- | ------------------- |
+| 1  | **Bubble Sort**    | Easy        | O(n²)               |
+| 2  | **Selection Sort** | Easy        | O(n²)               |
+| 3  | **Insertion Sort** | Easy        | O(n²)               |
+| 4  | **Merge Sort**     | Medium      | O(n log n)          |
+| 5  | **Quick Sort**     | Medium      | O(n log n) average  |
+| 6  | **Heap Sort**      | Medium/Hard | O(n log n)          |
+| 7  | **Counting Sort**  | Medium      | O(n + k)            |
+| 8  | **Radix Sort**     | Medium      | O(nk)               |
+| 9  | **Bucket Sort**    | Medium      | O(n + k)            |
+| 10 | **Shell Sort**     | Medium      | O(n log² n) roughly |
+| 11 | **Tim Sort**       | Advanced    | O(n log n)          |
+| 12 | **Intro Sort**     | Advanced    | O(n log n)          |
+
+
+
+so we will start loop and first we will set 1st element to min , 
+then we will loop and check all element when loop is running and the
+item is smaller than stored min then that element will be new min and
+when loop end we will put that min val to front , not loop will start 
+again but from i + 1 ie this time it start from index2 im i right
