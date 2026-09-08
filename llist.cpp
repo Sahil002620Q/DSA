@@ -1,4 +1,4 @@
-// head stores only next node ptr addr
+// head stores only next node ptr addr   working v2
 // node contains elements and ptr addr the ptr addr holds addr of next node and last node have nulptr
 #include <iostream>
 using namespace std;
@@ -69,6 +69,18 @@ class LL
         }
     }
 
+    void temp()
+    {
+
+        node* temp = head;
+        
+        cout << "END" << endl ;
+        cout << "temp : " << temp << endl ;
+        cout << "temp->element : " << temp->element << endl ;
+        cout << "temp->next : " << temp->next << endl ;
+        cout << "temp->next->element : " << temp->next->element << endl ;
+    }
+
     bool isEmpty()
     {
         if(head == nullptr)
@@ -109,22 +121,110 @@ class LL
         }
         else if (temp->next == nullptr)
         {
-            temp = temp->next; //temp->next is nullptr
-            head = temp->next;
-            delete temp;
+            //this is when head is not null but node 1 have null
+            node* delme = temp; //temp->next to temp?
+            head = nullptr;
+            delete delme;
         }
         else
         {
             while(temp->next->next != nullptr) //maybe last secon
             {
                 temp = temp->next; //last  node
-            }
-            temp->next = nullptr;     
-            node* delme = temp->next;  //holds delable
-            delete temp;
+            }//got last secon where node nonull  node null
+            node* delme = temp->next ;
+            temp->next = nullptr;
+            delete delme;
 
         }
     }
+
+    void delByValue(int target)
+    {
+        if(head == nullptr)
+        {
+            cout << "Error: cannot delete from empty linked list" << endl ;
+        }
+        else if(head->element == target)
+        {
+            delFromStart();
+        }
+        // else if(head->next != null){
+
+        // }
+        else{
+
+            node* temp = head;
+            while(temp->next->element != target)  //like my next is the target you need
+            {
+                temp = temp->next;
+                // head = head->next;
+            }
+            // temp->next = nullptr;
+            node* delme = temp->next;
+            temp->next = temp->next->next; //fault here 
+            delete delme;  //brute forceed
+        }
+    }
+
+    bool search(int target)
+    {
+        node* temp = head;
+        while(temp != nullptr)
+        {
+            if(temp->element == target)
+            {  
+                return true;
+            }
+            temp = temp->next; //was first who go exe before if
+        }
+        delete temp;
+        return false;
+    }
+
+    int length()
+    {
+        int count = 0;
+        node* temp = head;
+        while(temp != nullptr)
+        {
+            temp = temp->next;
+            count += 1;
+        }
+
+        cout << "length : " << count << endl ; 
+        delete temp;
+        return count;
+    }
+
+    // 0   1    2    3    4    5
+    //          |
+
+    void insertAtPosition(int position,int Element)
+    {
+        if(position == 0)
+        {
+            insAtBeginning(Element);
+        }
+        else if(length()  < position || position < 0)
+        {
+            cout << "Error : out of bound \n";
+        }
+        else
+        {
+            node* temp = head;
+            node* newnode = new node;
+            newnode->element = Element; 
+            for (int i = 0; i < position - 1 ; i++)
+            {
+                temp = temp->next;
+            }
+            newnode->next = temp->next;
+            temp->next = newnode;
+        } 
+    }
+
+    void reverse();
 };
     
 
@@ -141,13 +241,23 @@ int main()
     list.insAtEnd(200);
     list.insAtEnd(20);
     list.insAtEnd(299990);
+    list.insAtEnd(290);
+    list.delByValue(299990);
 
-    list.delFromStart(); //working
-    // list.delFromEnd();
+    // list.delFromStart(); //working
+    list.delByValue(100);
+    list.delByValue(10);
     list.display();
+    list.length();
     cout << "\033[40mEND\n\033[0m" ;
     cout << "\033[38;5;135mEND\n\033[0m\033[40m" ;
     cout << "\033[40m";
+    // list.temp();
+    cout << "do 20 exist : " << list.search(20) << endl ;
+    cout << "do 299990 exist : " << list.search(299990) << endl ;
+    cout << "do 101 exist : " << list.search(101) << endl ;
+    cout << "do 290 exist : " << list.search(290) << endl ;
+    
 
 
     // // cout << n1.element << endl ;
@@ -169,3 +279,6 @@ int main()
     // cout << head->next << endl ;
    
 }
+
+// temp->next = temp->next->next;   im temp i have member ele and next change my value of next to next next
+// cout << temp->next->element;  print the value my member next pointing to 
