@@ -26,9 +26,7 @@ class LL
         newnode->next = head;  //done
         head = newnode;
 
-        // cout << newnode->next << endl ;
-        // cout << head->next << endl ;
-        // head->next->element = insertable;
+      
 
     }
 
@@ -45,7 +43,7 @@ class LL
             {
                 temp = temp->next;
             }
-            //temp is now last //actually last - 1
+            //temp is now last //now last - 1
             
             node* newnode = new node ;  //done
             newnode->element = insertable; //done
@@ -224,7 +222,10 @@ class LL
         } 
     }
 
-    void reverse();
+    void reverse()
+    {
+        
+    }
 };
     
 
