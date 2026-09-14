@@ -49,7 +49,13 @@ void stack::push(int num)
 
 int stack::peak()
 {
-    return arr[top]; 
+    if(top == -1)
+    {
+        cout << "Error : stack is empty" << endl ;
+        // return arr[top];
+    }
+    else return arr[top]; 
+    
 }
 
 void stack::pop()
@@ -70,6 +76,9 @@ int main()
     stack s1;
     cout << (s1.empty() == true ? "is empty : true\n" : "is empty : false\n");
    
+    // s1.pop();
+    // cout << "last popped, after pop peak : " << s1.peak() << endl ; 
+    
     cout << "peek : " << s1.peak() << endl ;
     s1.push(3);
     cout << "peek : " << s1.peak() << endl ;
