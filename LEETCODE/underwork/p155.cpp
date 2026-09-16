@@ -4,19 +4,52 @@ using namespace std;
 class MinStack {
 public:
     int Top;
+    // int minval;
     vector<int> arr;
+    vector<int> minstack;
     MinStack() {
         Top = -1;
     }
     
     void push(int value) {
-        Top++;
-        arr.push_back(value);
+        if(Top == -1 ) 
+        {
+            Top++;
+            arr.push_back(value);
+            // minval = arr[0];
+        }
+        else
+        {
+            Top++;
+            arr.push_back(value);
+        }
+        //compa min
+        // if(minval == NULL)
+        // {
+        //     cout << "Stack is empty\n";
+        // }
+        // else 
+        // if(minval > value)
+        // {
+        //     minval = value;
+        // }
+        if(minstack.empty())
+        {
+            minstack.push_back(value);
+        }
+        else
+        {
+            minstack.push_back(min(value,minstack.back()));
+        }
     }
     
     void pop() { //done
-        Top--;
-        arr.pop_back();
+        if(Top != -1)
+        {
+            Top--;
+            arr.pop_back();
+            minstack.pop_back();
+        }
     }
     
     int top() { //done but if ?
@@ -28,11 +61,7 @@ public:
         if(Top == -1) return -1;
         else
         {   
-            int min = arr[0];
-            for (int i = 0; i < arr.size(); i++)
-            {
-                if(arr[i] < min) min = arr[i];
-            }
+            int min = minstack.back();
             return min;
         }
     }
@@ -49,7 +78,8 @@ public:
 
 int main()
 {
-    MinStack minStack = new MinStack();
+    MinStack minStack ;// = new MinStack();
+    minStack.pop();
     minStack.push(-2);
     minStack.push(0);
     minStack.push(-3);
