@@ -4,7 +4,6 @@ using namespace std;
 class MinStack {
 public:
     int Top;
-    // int minval;
     vector<int> arr;
     vector<int> minstack;
     MinStack() {
@@ -16,23 +15,13 @@ public:
         {
             Top++;
             arr.push_back(value);
-            // minval = arr[0];
         }
         else
         {
             Top++;
             arr.push_back(value);
         }
-        //compa min
-        // if(minval == NULL)
-        // {
-        //     cout << "Stack is empty\n";
-        // }
-        // else 
-        // if(minval > value)
-        // {
-        //     minval = value;
-        // }
+       
         if(minstack.empty())
         {
             minstack.push_back(value);
@@ -43,7 +32,8 @@ public:
         }
     }
     
-    void pop() { //done
+    void pop() 
+    {
         if(Top != -1)
         {
             Top--;
@@ -52,12 +42,14 @@ public:
         }
     }
     
-    int top() { //done but if ?
+    int top() 
+    { 
         if(Top == -1) return -1;
         else return arr[Top];
     }
     
-    int getMin() {
+    int getMin() 
+    {
         if(Top == -1) return -1;
         else
         {   

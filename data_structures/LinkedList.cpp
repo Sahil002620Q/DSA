@@ -64,7 +64,7 @@ void LL::delFromStart()
 {
     if(isEmpty())
     {
-        cout << "Error: cannot delete from empty linked list\n" ;
+        cout << "\033[91mError: cannot delete from empty linked list\033[0m\n" ;
     }
     else
     {
@@ -80,7 +80,7 @@ void LL::delFromEnd()
 
     if(isEmpty())
     {
-        cout << "Error: cannot delete from empty linked list\n" ;
+        cout << "\033[91mError: cannot delete from empty linked list\033[0m\n" ;
     }
     else if (temp->next == nullptr)
     {
@@ -104,7 +104,7 @@ void LL::delByValue(int target)
 {
     if(head == nullptr)
     {
-        cout << "Error: cannot delete from empty linked list" << endl ;
+        cout << "\033[91mError: cannot delete from empty linked list\033[0m" << endl ;
     }
     else if(head->element == target)
     {

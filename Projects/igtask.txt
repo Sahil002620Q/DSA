@@ -1,0 +1,4 @@
+Write a program to insert a new element at end as well as at a given position in an array. --done
+Write a program to delete an element from a given whose value is given or whose position is given. --done
+Write a program to find the location of a given element using Linear Search. --done 
+Write a program to find the location of a given element using Binary Search. --done

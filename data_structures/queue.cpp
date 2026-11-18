@@ -54,23 +54,39 @@ int queue::enqueue(int num)
 
 void queue::dequeue()
 {
-    front++;
+    if(front == -1)
+    {
+        cout << "\033[91mError: underflow\033[0m";
+    }
+    else
+    {
+        int delme = arr[front];
+        front++;
+        delme = NULL;
+    }
 }
 
 int queue::peak()
 {
+    if(front == -1 && rear == -1)
+    {
+        cout << "\033[91mError: Queue is empty\033[0m";
+    }
     return arr[front];
 }
 
-int queue::back()
+int queue::back() //not included
 {
     return arr[rear];
 }
 
 
-
 void queue::display()
 {
+    if(empty() == true)
+    {
+        cout << "\033[91mError: Queue is empty\033[0m";
+    }
     for(int j = 0; j <= rear; j++)
     {
         cout << arr[j] << ' ';
