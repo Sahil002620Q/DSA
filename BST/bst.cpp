@@ -53,7 +53,7 @@ class bst
                 }
                 else
                 {
-                    cout << "Skipped duplicate value " << val << " for insertion\n" ;
+                    cout << "\033[92mSkipped duplicate value " << val << " for insertion\n" << "\033[0m" ;
                     return;
                 }
             }
@@ -63,12 +63,12 @@ class bst
             if(val > prev->val)
             {
                 prev->right = new node(val);
-                cout << "Added " << val << " to the Right of " << prev->val << endl ;
+                cout << "\033[92mAdded " << val << " to the Right of " << prev->val << "\033[0m" << endl ;
             }
             else if (val < prev->val)
             {
                 prev->left = new node(val);
-                cout << "Added " << val << " to the Left of " << prev->val << endl ;
+                cout << "\033[92mAdded " << val << " to the Left of " << prev->val << "\033[0m" << endl ;
 
             }
             
