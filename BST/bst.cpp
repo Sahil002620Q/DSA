@@ -78,6 +78,29 @@ class bst
 
         void remove(int val)
         {
+            node* current = root;
+            node* prev = nullptr;
+
+            while(current != nullptr && current->val != val)
+            {
+                prev = current; 
+
+                if(val > current->val)
+                {
+                    current = current->right;
+                }
+                else if(val < current->val)
+                {
+                    current = current->left;
+                }
+            
+            }
+
+            if(current == nullptr)
+            {
+                cout << "\033[91mCan't delete " << val << " : value not found in BST\033[0m \n";
+                return;
+            }
 
         }
 
@@ -85,6 +108,7 @@ class bst
         {
 
         }
+
         void help_preorder(node* current)
         {
             if(current == nullptr)
@@ -102,7 +126,7 @@ class bst
         {
             if(root == nullptr)
             {
-                cout << "\033[93mTree is empty\033[0m";
+                cout << "\033[93mTree is empty\033[0m \n";
                 return;
             }
             
@@ -184,6 +208,7 @@ int main()
     tree.insert(75);
     tree.insert(25);
     tree.insert(25);
+    tree.remove(999);
     tree.preorder();
     tree.inorder();
     tree.postorder();
